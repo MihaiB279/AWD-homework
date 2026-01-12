@@ -36,7 +36,6 @@ nav a:focus {
     text-decoration: underline;
 }
 
-/* Main content */
 main {
     max-width: 900px;
     margin: auto;
@@ -68,7 +67,6 @@ img {
     max-width: 60%;
 }
 
-/* Footer */
 footer {
     background-color: #eaeaea;
     text-align: center;
@@ -85,4 +83,62 @@ footer {
     .hero-image {
         max-width: 100%;
     }
+}
+
+.flip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.flip-card {
+    perspective: 1000px;
+    height: 220px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s ease;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.flip-card-front {
+    background-color: #f3f8ff;
+    color: #1a2b4c;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.flip-card-back {
+    background-color: #4a90e2;
+    color: #ffffff;
+    transform: rotateY(180deg);
+}
+
+.flip-card-back h3 {
+    margin-top: 0;
 }
